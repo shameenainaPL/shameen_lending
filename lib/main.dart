@@ -90,7 +90,7 @@ class _LendingPageState extends State<LendingPage> {
     return Expanded(
         child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
-            mainAxisSize: MainAxisSize.max,
+            mainAxisSize: MainAxisSize.min,
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
               WidgetSize(
@@ -180,6 +180,7 @@ class _LendingPageState extends State<LendingPage> {
         Padding(
           padding: const EdgeInsets.symmetric(vertical: 0, horizontal: 20),
           child: InkWell(
+            key: const Key("btnUnlock"),
             onTap: () => print('hello'),
             child: Container(
               //width: 100.0,
@@ -218,15 +219,16 @@ class _LendingPageState extends State<LendingPage> {
     );
   }
 
-  Expanded widgetRectangle() {
-    return Expanded(
-        child:
-        Container(
+  Column widgetRectangle() {
+    return Column(
+        children:[
+          Container(
             decoration: const BoxDecoration(
               borderRadius: BorderRadius.all(Radius.circular(12)),
               color: Color(0xFF16231C),
             ),
             child: lendingBox())
+        ]
     );
   }
 
